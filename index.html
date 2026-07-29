@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hassan Raza | Portfolio</title>
+
+<!-- Google Fonts & FontAwesome Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* --- RESET & VARIABLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --dark-card: #121212;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary: #f9572a;
+  --primary-hover: #e0481d;
+  --border-color: #e2e8f0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* --- NAVBAR --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(12px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+nav .logo {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+nav .logo span {
+  color: var(--primary);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--primary);
+}
+
+.nav-btn {
+  background: var(--primary);
+  color: white !important;
+  padding: 10px 22px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 15px rgba(249, 87, 42, 0.3);
+}
+
+/* --- SECTIONS COMMON --- */
+section {
+  padding: 100px 8%;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.section-tag {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 40px;
+  color: var(--text-main);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  min-height: 100vh;
+  padding-top: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 span {
+  color: var(--primary);
+}
+
+.hero-content p {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  max-width: 520px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--dark-card);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2a2a2a;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+/* HERO IMAGE CARD */
+.hero-image-wrapper {
+  position: relative;
+}
+
+.hero-img-card {
+  width: 100%;
+  max-width: 420px;
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  margin: auto;
+  position: relative;
+  background: #e2e8f0;
+}
+
+.hero-img-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 20px;
+  left: -20px;
+  background: var(--primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 10px 20px rgba(249, 87, 42, 0.3);
+}
+
+/* STATS BAR */
+.stats-grid {
+  display: flex;
+  gap: 60px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 30px;
+}
+
+.stat-item h3 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.stat-item p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* --- SERVICES SECTION --- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+}
+
+.service-card.dark {
+  background: var(--dark-card);
+  color: white;
+  border: none;
+}
+
+.service-card.dark p {
+  color: #a1a1aa;
+}
+
+.icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #fff4f0;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.service-card.dark .icon-box {
+  background: #262626;
+  color: white;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.service-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+/* --- ABOUT SECTION --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-img-box {
+  border-radius: 24px;
+  overflow: hidden;
+  height: 400px;
+  background: #cbd5e1;
+}
+
+.about-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content p {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* SKILLS INSIDE ABOUT */
+.skills-container {
+  margin-top: 30px;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.skill-bar {
+  background: #e2e8f0;
+  height: 8px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  background: var(--primary);
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* --- CONTACT SECTION --- */
+.contact-wrapper {
+  background: var(--dark-card);
+  border-radius: 28px;
+  padding: 60px;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info h2 {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.contact-info p {
+  color: #a1a1aa;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-details a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.contact-details a:hover {
+  color: var(--primary);
+}
+
+/* FORM STYLES */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 16px;
+  background: #1a1a1a;
+  border: 1px solid #2e2e2e;
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+}
+
+.contact-form button {
+  background: var(--primary);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: var(--primary-hover);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+  .hero-grid, .about-grid, .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-content h1 {
+    font-size: 42px;
+  }
+  
+  .hero-image-wrapper {
+    order: -1;
+  }
+  
+  .hero-img-card {
+    height: 380px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    display: none;
+  }
+  
+  section {
+    padding: 60px 5%;
+  }
+  
+  .contact-wrapper {
+    padding: 30px;
+  }
+  
+  .stats-grid {
+    gap: 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo">Hassan<span> Raza</span></a>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Contact</a>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="hero-grid">
+    
+    <div class="hero-content">
+      <span class="section-tag">Web Developer & Designer</span>
+      <h1>Hi, I'm <span>Hassan Raza</span></h1>
+      <p>I build clean, high-performing, and modern web experiences that turn your digital ideas into functional web products.</p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Hire me <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="#about" class="btn btn-secondary">About me</a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>95%+</h3>
+          <p>HTML & CSS</p>
+        </div>
+        <div class="stat-item">
+          <h3>85%+</h3>
+          <p>JavaScript</p>
+        </div>
+        <div class="stat-item">
+          <h3>100%</h3>
+          <p>Dedication</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrapper">
+      <div class="hero-img-card">
+        <img src="profile.png" alt="Hassan Raza">
+      </div>
+      <div class="hero-badge">
+        <i class="fa-solid fa-code"></i> Developer
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services">
+  <span class="section-tag">Services</span>
+  <h2 class="section-title">What I Do</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="icon-box"><i class="fa-solid fa-laptop-code"></i></div>
+      <h3>Web Development</h3>
+      <p>Building responsive, performance-optimized websites using standard technologies like HTML, CSS, and JS.</p>
+    </div>
+
+    <div class="service-card dark">
+      <div class="icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <h3>Responsive Design</h3>
+      <p>Ensuring your website looks clean, seamless, and pixel-perfect on mobile, tablet, and desktop screens.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+      <h3>UI/UX Optimization</h3>
+      <p>Crafting modern layouts focused on delivering seamless and accessible user experiences.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-box">
+      <img src="profile.png" alt="Hassan Raza About">
+    </div>
+
+    <div class="about-content">
+      <span class="section-tag">About Me</span>
+      <h2 class="section-title" style="margin-bottom: 20px;">A bit about who I am</h2>
+      <p>I am Hassan Raza, a passionate Web Developer focused on crafting reliable and modern web products. I enjoy translating creative designs into real, performant websites.</p>
+      
+      <!-- SKILLS INTEGRATED -->
+      <div class="skills-container" id="skills">
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>HTML</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>CSS</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-info">
+            <span>JavaScript</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+  <div class="contact-wrapper">
+    
+    <div class="contact-info">
+      <h2>Let's work together</h2>
+      <p>Have a project in mind or want to collaborate? Feel free to reach out and drop a message.</p>
+
+      <div class="contact-details">
+        <a href="mailto:hassanshahbaz8321@gmail.com">
+          <i class="fa-regular fa-envelope"></i> hassanshahbaz8321@gmail.com
+        </a>
+        <a href="tel:+923018910299">
+          <i class="fa-solid fa-phone"></i> +92 3018910299
+        </a>
+      </div>
+    </div>
+
+    <form class="contact-form" action="https://formsubmit.co/hassanshahbaz8321@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      
+      <input type="text" class="input-field" name="name" placeholder="Your Name" required>
+      <input type="email" class="input-field" name="email" placeholder="Your Email" required>
+      <textarea class="input-field" name="message" rows="4" placeholder="Your Message" required></textarea>
+
+      <button type="submit">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+    </form>
+
+  </div>
+</section>
+
+</body>
+</html>
